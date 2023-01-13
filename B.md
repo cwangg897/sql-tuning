@@ -17,3 +17,28 @@ from programmer;
 
 
 ### 각 프로그래머별로 해당하는 병원 이름을 반환하세요. (covid.id, hospital.name)
+![image](https://user-images.githubusercontent.com/79621675/212226266-8816a3f5-665f-45f2-b2e3-036cc5b3b723.png)
+
+![image](https://user-images.githubusercontent.com/79621675/212226972-1aa14c91-83c6-487c-8cce-60a34605985a.png)
+![image](https://user-images.githubusercontent.com/79621675/212227031-af5fcb58-21ac-483d-8852-27ad88e73c1a.png)
+
+
+### 3번문제
+전
+![image](https://user-images.githubusercontent.com/79621675/212227977-b11bd4b6-2745-41fd-9d12-31f03aea61bb.png)
+![image](https://user-images.githubusercontent.com/79621675/212227948-709c489d-5ea8-4a77-8dd8-66ada96edb30.png)
+후는 할게없음
+```sql
+-- 프로그래밍이 취미인 학생 혹은 주니어(0-2년)들이 다닌 병원 이름을 반환하고 user.id 기준으로 정렬하세요. 
+-- (covid.id, hospital.name, user.Hobby, user.DevType, user.YearsCoding)
+
+select covid.id, hospital.name, programmer.hobby, programmer.dev_type, programmer.years_coding
+from programmer
+inner join covid on covid.programmer_id = programmer.id
+inner join hospital on covid.hospital_id = hospital.id
+where (programmer.hobby= 'Yes' and programmer.student != 'no') or programmer.years_coding = '0-2 years';
+```
+
+
+### 4번문제
+
