@@ -33,7 +33,7 @@ order by 다섯명.연봉 desc;
 ``` 
 
 
-v4 .034
+v4 0.34
 ``` sql
 select 다섯명.사원번호, 사원.이름, 다섯명.연봉, 다섯명.직급명, 사원출입기록.지역, 사원출입기록.입출입구분, 사원출입기록.입출입시간
 from ( 
@@ -77,3 +77,16 @@ JOIN 사원출입기록 ON 관리자.사원번호 = 사원출입기록.사원번
 WHERE 사원출입기록.입출입구분 = "O"
 ORDER BY 관리자.연봉 DESC, 관리자.사원번호, 사원출입기록.지역
 ```
+
+### 인덱스 설정을 추가하여 50 ms 이하로 반환한다.
+![image](https://user-images.githubusercontent.com/79621675/212217757-e222a445-3357-4c76-85b5-c90969bb03da.png)
+```
+사원출입기록에 풀테이블스캔과 row의 개수가 많은걸보고 사원번호에 인덱스를 걸었다
+```
+### 적용후
+![image](https://user-images.githubusercontent.com/79621675/212219749-e17fa021-f130-453f-a788-4d112f102cbb.png)
+
+
+where 조건을 뒤로밀었다 변화없었다...
+![image](https://user-images.githubusercontent.com/79621675/212220170-443d10aa-a3ee-4438-980e-8291a42d658c.png)
+
